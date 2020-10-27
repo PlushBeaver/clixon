@@ -38,6 +38,10 @@ Expected: September, 2021
 * Restconf YANG PATCH according to RFC 8072
   * Experimental: enable by setting YANG_PATCH in include/clixon_custom.h
   * Thanks to Alan Yaniger for providing this patch
+* List pagination
+  * This is prototype work for ietf netconf work
+  * See draft-wwlh-netconf-list-pagination-00.txt
+  * New http media: application/yang.collection+xml/json
 
 ### C/CLI-API changes on existing features
 
@@ -427,7 +431,7 @@ Developers may need to change their code
   * This only applies to the evhtp restconf daemon, not fcgi/nginx, where the nginx config is used.
   * The RESTCONF clixon-config options are obsolete
   * Thanks to Dave Cornejo for the idea
-  
+
 ### API changes on existing protocol/config features
 
 Users may have to change how they access the system
