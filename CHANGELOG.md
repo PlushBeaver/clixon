@@ -52,6 +52,7 @@ Developers may need to change their code
 
 ### Corrected Bugs
 
+* Fixed: Leafs added as augments on NETCONF RPC input/output lacked cv:s causing error in default handling
 * Fixed: RFC 8040 yang-data extension allows non-key lists
   * Added YANG_FLAG_NOKEY as exception to mandatory key lists
 * Fixed: mandatory leaf in a uses statement caused abort

@@ -1148,6 +1148,7 @@ xml_default1(yang_stmt *yt,
     int        create = 0;
     char      *xpath;
     int        nr;
+    cg_var    *cv;
 
     if (xt == NULL){ /* No xml */
 	clicon_err(OE_XML, EINVAL, "No XML argument");
@@ -1167,7 +1168,12 @@ xml_default1(yang_stmt *yt,
 		continue;
 	    switch (yang_keyword_get(yc)){
 	    case Y_LEAF:
-		if (!cv_flag(yang_cv_get(yc), V_UNSET)){  /* Default value exists */
+		if ((cv = yang_cv_get(yc)) == NULL){
+		    clicon_err(OE_YANG,0, "Internal error: yang leaf %s not populated with cv as it should",
+			       yang_argument_get(yc));
+		    goto done;
+		}
+		if (!cv_flag(cv, V_UNSET)){  /* Default value exists */
 		    /* Check when statement from uses or augment */
 		    if ((xpath = yang_when_xpath_get(yc)) != NULL){
 			if ((nr = xpath_vec_bool(xt, yang_when_nsc_get(yc), "%s", xpath)) < 0)
