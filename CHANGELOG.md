@@ -50,6 +50,11 @@ Developers may need to change their code
 * Native Restconf is now default, not fcgi/nginx
   * That is, to configure with fcgi, you need to explicitly configure: `--with-restconf=fcgi`
 
+### Minor features
+
+* ietf-yang-metadata RFC 7952 support, placeholder parsing and extension
+  * No actual json/xml semantics
+
 ### Corrected Bugs
 
 * Fixed: Leafs added as augments on NETCONF RPC input/output lacked cv:s causing error in default handling

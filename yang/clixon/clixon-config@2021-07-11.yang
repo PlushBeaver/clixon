@@ -198,7 +198,10 @@ module clixon-config {
 	    "Datastore format.";
 	type enumeration{
 	    enum xml{
-		description "Save and load xmldb as XML";
+		description
+		"Save and load xmldb as XML
+                 More specifically, such a file looks like: <config>...</config> provided
+                 DATASTORE_TOP_SYMBOL is 'config'";
 	    }
 	    enum json{
 		description "Save and load xmldb as JSON";
@@ -644,6 +647,7 @@ module clixon-config {
                     <CLICON_CLI_AUTOCLI_EXCLUDE>clixon-restconf</CLICON_CLI_AUTOCLI_EXCLUDE> 
                  means generate autocli for all models except clixon-restconf.yang
                  The value can be a list of space separated module names";
+	    default "clixon-restconf";
 	}
 	leaf CLICON_CLI_VARONLY {
 	    type int32;
